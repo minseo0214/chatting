@@ -121,6 +121,15 @@
     "@types/koa" "*"
     "@types/koa-send" "*"
 
+"@types/koa-websocket@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@types/koa-websocket/-/koa-websocket-5.0.7.tgz#8e9a4d291714cb09c98477cfebf15d232c416a58"
+  integrity sha512-zv5F0iaV9zk3iXLzvskUZKgX35RW7F7UNX3tK1FNQUn2nierQWlY2aM0dBTYs0kLVLRtBhsxcUdiKzDp9JPOAw==
+  dependencies:
+    "@types/koa" "*"
+    "@types/koa-compose" "*"
+    "@types/ws" "*"
+
 "@types/koa@*", "@types/koa@^2.13.4":
   version "2.13.4"
   resolved "https://registry.yarnpkg.com/@types/koa/-/koa-2.13.4.tgz#10620b3f24a8027ef5cbae88b393d1b31205726b"
@@ -187,6 +196,13 @@
   integrity sha512-nCkHGI4w7ZgAdNkrEu0bv+4xNV/XDqW+DydknebMOQwkpDGx8G+HTlj7R7ABI8i8nKxVw0wtKPi1D+lPOkh4YQ==
   dependencies:
     "@types/mime" "^1"
+    "@types/node" "*"
+
+"@types/ws@*":
+  version "8.5.3"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.5.3.tgz#7d25a1ffbecd3c4f2d35068d0b283c037003274d"
+  integrity sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==
+  dependencies:
     "@types/node" "*"
 
 JSONStream@^1.0.3:
@@ -800,7 +816,7 @@ debug@^3.1.0, debug@^3.2.7:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.1.1, debug@^4.3.2:
+debug@^4.1.1, debug@^4.3.2, debug@^4.3.4:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
@@ -1820,6 +1836,16 @@ koa-static@^5.0.0:
   dependencies:
     debug "^3.1.0"
     koa-send "^5.0.0"
+
+koa-websocket@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/koa-websocket/-/koa-websocket-7.0.0.tgz#29e77ccebf8621f00bf8db988275561645187ad3"
+  integrity sha512-MsHUFKqA4+j+0dpPKWtsvZfnpQ1NcgF+AaTZQZ4B3Xj/cWK31qqmKx9HnA5Gw1LV2aIDzqwy0IDBsZYRurTUAg==
+  dependencies:
+    co "^4.6.0"
+    debug "^4.3.4"
+    koa-compose "^4.1.0"
+    ws "^8.5.0"
 
 koa@^2.13.4:
   version "2.13.4"
@@ -2954,7 +2980,7 @@ write-file-atomic@^3.0.0:
     signal-exit "^3.0.2"
     typedarray-to-buffer "^3.1.5"
 
-ws@^8.7.0:
+ws@^8.5.0:
   version "8.7.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.7.0.tgz#eaf9d874b433aa00c0e0d8752532444875db3957"
   integrity sha512-c2gsP0PRwcLFzUiA8Mkr37/MI7ilIlHQxaEAtd0uNMbVMoy8puJyafRlm0bV9MbGSabUPeLrRRaqIBcFcA2Pqg==

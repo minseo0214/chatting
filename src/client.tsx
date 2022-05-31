@@ -1,19 +1,15 @@
 //dom을 사용해서 html을 꾸민다.
-import * as ReactDOM from 'react-dom/client'
+import * as React from 'react'
+import ReactDOM from 'react-dom/client'
 import App from './app'
 
 const rootElement = document.getElementById('root')
-const root = ReactDOM.createRoot(rootElement)
-root.render(App())
-
-var socket = new WebSocket(`ws://${window.location.hostname}`)
-
-//연결이 수립된 이후에만 데이터 전송
-socket.onopen = function (event) {
-  socket.send('here')
-  sendText()
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement)
+  root.render(<App />)
 }
 
+/*
 function sendText() {
   var msg = {
     type: 'message',
@@ -35,3 +31,4 @@ socket.onmessage = function (event) {
   var time = new Date(msg.date)
   var timeStr = time.toLocaleTimeString()
 }
+*/

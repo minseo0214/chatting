@@ -1,16 +1,22 @@
-import * as Koa from 'koa'
-import * as fs from 'fs'
-import * as path from 'path'
+import Koa from 'koa'
+// import KoaRouter from 'koa-router'
+import websockify from 'koa-websocket'
 import KoaStatic from 'koa-static'
-//import WebSocket, { WebbSocketServer } from 'websocket'
 
-// 파일 읽기: fs (import fs from 'fs')
-// koa-send, koa-static, koa-serve ...
-
-const app = new Koa()
+const app = websockify(new Koa())
 const port = 3000
+// const route = new KoaRouter()
+
+app.ws.use((ctx) => {
+  ctx.websocket.on('message', (msgBuf) => {
+    const msg: { a: number } = JSON.parse(msgBuf.toString())
+    // TODO: 여기에서의 ctx는 지금 이 클로저 내의 한 개의 ctx에만 해당하기 때문에, 클라이언트 전부에게 보낼 수가 없다. 어떻게 해야 할까?
+    // ctx.websocket.send()
+  })
+})
 
 app.use(KoaStatic('./public'))
 
-app.listen(port)
-console.log('server start:' + port)
+app.listen(port, () => {
+  console.log('server start:' + port)
+})
