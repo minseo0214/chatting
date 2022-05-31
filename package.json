@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "esbuild": "^0.14.42",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "tsify": "^5.0.4",
+    "typescript": "^4.7.2",
+    "websocket": "^1.0.34"
+  },
+  "scripts": {
+    "watch": "esbuild src/server.ts --platform=node --bundle --outfile=public/server.js --watch",
+    "server": "nodemon public/server.js",
+    "client_watch": "esbuild src/client.ts --bundle --outfile=public/client.js --watch"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.4",
+    "@types/koa-bodyparser": "^4.3.7",
+    "@types/koa-router": "^7.4.4",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.5"
+  }
+}
