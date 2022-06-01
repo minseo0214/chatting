@@ -2,8 +2,8 @@ import '../public/index.css'
 import React, { useState } from 'react'
 //import { NewTodoIcon } from './NewTodoIcon'
 
-export function BottomMenu() {
-  const [todo, setTodo] = useState('')
+export function BottomMenu(props: { onSend: (text: string) => void }) {
+  const [text, setText] = useState('')
 
   return (
     <div
@@ -26,14 +26,15 @@ export function BottomMenu() {
           paddingLeft: '30px',
           fontFamily: 'Spline Sans Mono',
         }}
-        placeholder='Add a task'
+        placeholder='Write Message and Enter'
         onChange={(e) => {
-          setTodo(e.target.value)
+          setText(e.target.value)
         }}
-        value={todo}
+        value={text}
         onKeyPress={(e) => {
           if (e.key === 'Enter') {
-            setTodo('')
+            props.onSend(text)
+            setText('')
           }
         }}
       ></input>
