@@ -6,7 +6,6 @@ export function Chat(props: {
   name: string
   time: string
 }) {
-  console.log(props.myName, props.name)
   return (
     <div
       className='textBox'
@@ -14,7 +13,6 @@ export function Chat(props: {
         background: props.name === props.myName ? 'lightgray' : 'white',
       }}
     >
-      {/*계속 그리기*/}
       <div
         className='textBoxNickname'
         style={{
