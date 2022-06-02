@@ -3,11 +3,11 @@
 
 # 2. 프로젝트 정보
 ## 2-1. 설치
-'''bash
+```bash
 
 json, lock으로 환경 설정을 하는 방법을 모르겠습니다.
 
-'''
+```
 
 ## 2-2. 사용 방법
 ```bash
@@ -23,11 +23,11 @@ Directory는 다음과 같이 이뤄져 있다.
 ts 파일을 node에서 사용하기 위해 번들링을 해야 한다.
 package.json 파일에 script를 짜놨다.
 
-'''bash
+```bash
 yarn watch:server
 yarn watch:client
 yarn server
-'''
+```
 
 터미널 3개에 각각 cml을 입력하면,
 public 폴더에 client,js, server.js, client.css 가 생길 것이다.
