@@ -1,31 +1,14 @@
 import '../public/index.css'
+import { SendIcon } from './send'
 import React, { useState } from 'react'
-//import { NewTodoIcon } from './NewTodoIcon'
 
 export function BottomMenu(props: { onSend: (text: string) => void }) {
   const [text, setText] = useState('')
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        padding: '20px',
-      }}
-    >
+    <div className='inputWrapper'>
       <input
-        style={{
-          height: '64px',
-          display: 'flex',
-          flexGrow: 1,
-          backgroundColor: 'white',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRadius: '32px',
-          borderWidth: 0,
-          paddingLeft: '30px',
-          fontFamily: 'Spline Sans Mono',
-        }}
+        className='input'
         placeholder='Write Message and Enter'
         onChange={(e) => {
           setText(e.target.value)
@@ -38,15 +21,12 @@ export function BottomMenu(props: { onSend: (text: string) => void }) {
           }
         }}
       ></input>
-
-      {/*
-
-      <NewTodoIcon
-        onClick={() => {
-          onSubmit(todo)
-          setTodo('')
+      <SendIcon
+        onSend={() => {
+          props.onSend(text)
+          setText('')
         }}
-    />*/}
+      />
     </div>
   )
 }

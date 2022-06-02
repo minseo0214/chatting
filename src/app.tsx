@@ -2,12 +2,23 @@ import * as React from 'react'
 import '../public/index.css'
 import { useCallback, useState, useRef } from 'react'
 import { BottomMenu } from './BottomMenu'
-import { Todo } from './ChattingBox'
+import { Chat } from './ChattingBox'
+
+/*
+1. client가 메세지를 엔터할 때마다, 서버로 보낸다.
+2. server에서는 메시지를 client들에게 보낸다.
+
+*/
+
+//이렇게 빼도 되나요?
+const socket = new WebSocket(`ws://${window.location.host}`)
 
 export default function App() {
-  const [count, setCount] = React.useState(0)
   const [text, setText] = React.useState({})
-  const cn = useRef(null)
+  const [flag, setFlag] = React.useState(false)
+  const [chats, setChats] = React.useState([{ id: 0, t: 'welcome' }])
+
+  let lastId = 1
 
   const onSend = useCallback((textNow: string) => {
     if (textNow.length === 0) {
@@ -18,26 +29,37 @@ export default function App() {
   }, [])
 
   React.useEffect(() => {
-    const socket = new WebSocket(`ws://${window.location.host}`)
+    if (!flag) {
+      //const socket = new WebSocket(`ws://${window.location.host}`)
 
-    socket.addEventListener('open', () => {
-      //연결이 수립된 이후에만 데이터 전송
-      socket.send('hello')
-    })
+      //connection opened
+      socket.addEventListener('open', () => {
+        console.log('open socket')
+      })
 
-    socket.addEventListener('message', (e) => {
-      console.log('server', e.data)
-      //socket.send(JSON.stringify(text))
-    })
-  }, [])
+      //server에서 message 받아옴.
+      socket.addEventListener('message', (e) => {
+        const newChat = { id: lastId++, t: e.data }
+        setChats((_chats) => [..._chats, newChat])
+      })
+
+      socket.addEventListener('close', (e) => {
+        console.log('someone out')
+      })
+      setFlag(true)
+    } else {
+      socket.send(JSON.stringify(text))
+    }
+  }, [text])
 
   return (
     //전체 배경
-    <div className='background'>
-      <div onClick={() => setCount((prev) => prev + 1)}>{count}</div>
-      <div className='title'>Chatting Room</div>
-      <div className='text'>
-        <Todo />
+    <div className='wrapper'>
+      {/*대화창이 있는 배경 */}
+      <div className='textBoxWrapper'>
+        {chats.map((chat) => {
+          return <Chat key={chat.id} chat={chat.t} />
+        })}
       </div>
       <BottomMenu onSend={onSend} />
     </div>
