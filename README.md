@@ -3,11 +3,15 @@
 --------------------------------------
 # 2. 프로젝트 정보
 ## 2-1. 설치
+
+* node.js 설치
+
 ```bash
-
-json, lock으로 환경 설정을 하는 방법을 모르겠습니다.
-
+npm install -g yarn
 ```
+
+[lock.yarn 에 맞춰서 설정하는 방법](https://stackoverflow.com/questions/52630404/how-to-install-packages-based-on-the-lock-file-with-yarn)
+
 
 ## 2-2. 사용 방법
 ```bash
