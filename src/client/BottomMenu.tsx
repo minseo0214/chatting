@@ -1,6 +1,6 @@
-import '../public/index.css'
-import { SendIcon } from './send'
 import React, { useState } from 'react'
+
+import { SendIcon } from './SendIcon'
 
 export function BottomMenu(props: { onSend: (text: string) => void }) {
   const [text, setText] = useState('')
@@ -20,7 +20,7 @@ export function BottomMenu(props: { onSend: (text: string) => void }) {
             setText('')
           }
         }}
-      ></input>
+      />
       <SendIcon
         onSend={() => {
           props.onSend(text)

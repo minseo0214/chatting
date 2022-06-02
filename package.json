@@ -16,9 +16,9 @@
     "websocket": "^1.0.34"
   },
   "scripts": {
-    "watch": "esbuild src/server.ts --platform=node --bundle --outfile=public/server.js --watch",
-    "server": "nodemon public/server.js",
-    "client_watch": "esbuild src/client.tsx --bundle --outfile=public/client.js --watch"
+    "watch:server": "esbuild src/server/index.ts --platform=node --bundle --outfile=public/server.js --watch",
+    "watch:client": "esbuild src/client/index.tsx --bundle --outfile=public/client.js --watch",
+    "server": "nodemon public/server.js"
   },
   "devDependencies": {
     "@types/koa": "^2.13.4",
@@ -27,6 +27,10 @@
     "@types/koa-static": "^4.0.2",
     "@types/koa-websocket": "^5.0.7",
     "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.5"
+    "@types/react-dom": "^18.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
+    "eslint-plugin-react-hooks": "^4.5.0"
   }
 }

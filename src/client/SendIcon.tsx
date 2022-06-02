@@ -1,11 +1,10 @@
 import * as React from 'react'
-import '../public/index'
 
 export function SendIcon({ onSend }: { onSend(): void }) {
   return (
     <svg
       className='button'
-      viewBox='-5 -5 32 32'
+      viewBox='-8 -20 40 64'
       fill='#000000'
       onClick={onSend}
     >

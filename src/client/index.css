@@ -31,11 +31,34 @@ body {
   border-radius: 50px;
 }
 
+.time {
+  color: gray;
+  font-size: 5px;
+  margin-right: 20px;
+  float: right;
+}
+
+.nickname {
+  color: white;
+  font-size: 50px;
+  font-family: 'Spline Sans Mono', monospace;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
 .text {
   color: black;
   font-size: 15px;
   font-family: 'Spline Sans Mono', monospace;
   flex-grow: 1;
+  margin-left: 10px;
+}
+
+.textBoxNickname {
+  font-size: 15px;
+  float: left;
   margin-left: 20px;
 }
 
