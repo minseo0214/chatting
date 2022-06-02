@@ -29,7 +29,7 @@ yarn watch:client
 yarn server
 ```
 
-터미널 3개에 각각 cml을 입력하면,  
+터미널 3개에 각각 cli를 입력하면    
 public 폴더에 client,js, server.js, client.css 가 생길 것이다.  
 
 이제 브라우저에 들어가서 localhost:3000 을 입력하면 된다.  
