@@ -14,6 +14,8 @@
     "websocket": "^1.0.34"
   },
   "scripts": {
+    "build:server": "esbuild src/server/index.ts --platform=node --bundle --outfile=public/server.js ",
+    "build:client": "esbuild src/client/index.tsx --bundle --outfile=public/client.js",
     "watch:server": "esbuild src/server/index.ts --platform=node --bundle --outfile=public/server.js --watch",
     "watch:client": "esbuild src/client/index.tsx --bundle --outfile=public/client.js --watch",
     "server": "nodemon public/server.js"
